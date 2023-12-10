@@ -5,7 +5,6 @@ from typing import List, Dict, Optional, Union
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
-import requests
 from pageo import BasePage, XPATHLocator
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -37,7 +36,6 @@ class GlvrdClient:
     def get_driver(self) -> webdriver.Chrome:
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
-        service=ChromeService(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         return driver
 
