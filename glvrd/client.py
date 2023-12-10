@@ -1,6 +1,6 @@
 import time
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Dict, Optional
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -13,7 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 @dataclass
 class EstimationResult:
     estimate: Optional[float] = None
-    errors: dict[str, List[str]] = field(default_factory=lambda: {})
+    errors: Dict[str, List[str]] = field(default_factory=lambda: {})
 
 class IndexPage(BasePage):
     base_url = 'https://glvrd.ru/'
