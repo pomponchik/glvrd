@@ -2,8 +2,8 @@
 
 [![Downloads](https://static.pepy.tech/badge/glvrd/month)](https://pepy.tech/project/glvrd)
 [![Downloads](https://static.pepy.tech/badge/glvrd)](https://pepy.tech/project/glvrd)
-[![Python versions](https://img.shields.io/pypi/pyversions/cantok.svg)](https://pypi.python.org/pypi/cantok)
-[![PyPI version](https://badge.fury.io/py/cantok.svg)](https://badge.fury.io/py/cantok)
+[![Python versions](https://img.shields.io/pypi/pyversions/glvrd.svg)](https://pypi.python.org/pypi/glvrd)
+[![PyPI version](https://badge.fury.io/py/glvrd.svg)](https://badge.fury.io/py/glvrd)
 
 Это неофициальный и не production-ready клиент для замечательного сервиса проверки текстов - glvrd.ru. Работает в обход API, так что на особую скорость советую не расчитывать.
 
