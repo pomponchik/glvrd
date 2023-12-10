@@ -15,7 +15,7 @@ class EstimationResult:
     estimate: Optional[float] = None
     errors: Dict[str, List[str]] = field(default_factory=lambda: {})
 
-class IndexPage(BasePage):
+class IndexPage(BasePage):  # type: ignore
     base_url = 'https://glvrd.ru/'
 
     empty_input_field = XPATHLocator('//*[@id="glaveditor-id"]/div[1]')
