@@ -1,6 +1,6 @@
 import time
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Union
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -41,10 +41,10 @@ class GlvrdClient:
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         return driver
 
-    def get_page_object(self, driver) -> IndexPage:
+    def get_page_object(self, driver: webdriver.Chrome) -> IndexPage:
         return IndexPage(driver=driver)
 
-    def estimate_something(self, text, sleep_before_result=4) -> EstimationResult:
+    def estimate_something(self, text: str, sleep_before_result: Union[int, float]) -> EstimationResult:
         result = EstimationResult()
 
         self.page.empty_input_field.clear()
@@ -67,10 +67,10 @@ class GlvrdClient:
 
         return result
 
-    def estimate_clarity(self, text, sleep_before_result=4) -> EstimationResult:
+    def estimate_clarity(self, text: str, sleep_before_result: Union[int, float] = 4) -> EstimationResult:
         self.page.clarity_screen_on.click()
-        return self.estimate_something(text, sleep_before_result=sleep_before_result)
+        return self.estimate_something(text, sleep_before_result)
 
-    def estimate_readability(self, text, sleep_before_result=4) -> EstimationResult:
+    def estimate_readability(self, text: str, sleep_before_result: Union[int, float] = 4) -> EstimationResult:
         self.page.readability_screen_on.click()
-        return self.estimate_something(text, sleep_before_result=sleep_before_result)
+        return self.estimate_something(text, sleep_before_result)
