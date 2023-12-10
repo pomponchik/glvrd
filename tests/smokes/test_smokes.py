@@ -9,6 +9,7 @@ def test_estimate_clarity():
 
     assert estimate.estimate == 8.1
 
+    print(estimate)
     assert estimate.errors == {
         'Необъективная оценка': ['замечательного'],
         'Усилитель': ['особую'],
