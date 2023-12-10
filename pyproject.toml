@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "glvrd"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Evgeniy Blinov", email="zheni-b@yandex.ru" },
 ]
@@ -34,9 +34,6 @@ classifiers = [
     'Intended Audience :: Education',
     'Topic :: Software Development :: Libraries',
 ]
-
-[tool.setuptools.packages.find]
-where = ["glvrd"]
 
 [project.urls]
 'Source' = 'https://github.com/pomponchik/glvrd'

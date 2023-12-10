@@ -22,6 +22,8 @@ class IndexPage(BasePage):
     full_input_field = XPATHLocator('//*[@id="glaveditor-id"]/div[1]/p', is_many=True)
     estimate = XPATHLocator('//*[@id="app"]/div/div[3]/div[1]/div[2]/div[3]/div[1]/span[1]')
     highlighted_error_name = XPATHLocator('//*[@id="app"]/div/div[3]/div[2]/div/div/div/div/h1')
+    clarity_screen_on = XPATHLocator('//*[@id="app"]/div/div[3]/div[1]/div[1]/span[1]')
+    readability_screen_on = XPATHLocator('//*[@id="app"]/div/div[3]/div[1]/div[1]/span[2]')
 
 
 class GlvrdClient:
@@ -30,7 +32,7 @@ class GlvrdClient:
         self.page = self.get_page_object(self.driver)
 
     def __del__(self):
-        self.driver.close()
+        self.driver.quit()
 
     def get_driver(self):
         options = webdriver.ChromeOptions()
@@ -42,7 +44,7 @@ class GlvrdClient:
     def get_page_object(self, driver):
         return IndexPage(driver=driver)
 
-    def estimate(self, text, sleep_before_result=4):
+    def estimate_something(self, text, sleep_before_result=4):
         result = EstimationResult()
 
         self.page.empty_input_field.clear()
@@ -64,3 +66,11 @@ class GlvrdClient:
                 result.errors[error_name].append(highlighted_text)
 
         return result
+
+    def estimate_clarity(self, text, sleep_before_result=4):
+        self.page.clarity_screen_on.click()
+        return self.estimate_something(text, sleep_before_result=sleep_before_result)
+
+    def estimate_readability(self, text, sleep_before_result=4):
+        self.page.readability_screen_on.click()
+        return self.estimate_something(text, sleep_before_result=sleep_before_result)
