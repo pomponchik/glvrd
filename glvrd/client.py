@@ -27,24 +27,24 @@ class IndexPage(BasePage):
 
 
 class GlvrdClient:
-    def __init__(self):
+    def __init__(self) -> None:
         self.driver = self.get_driver()
         self.page = self.get_page_object(self.driver)
 
-    def __del__(self):
+    def __del__(self) -> None:
         self.driver.quit()
 
-    def get_driver(self):
+    def get_driver(self) -> webdriver.Chrome:
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         service=ChromeService(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         return driver
 
-    def get_page_object(self, driver):
+    def get_page_object(self, driver) -> IndexPage:
         return IndexPage(driver=driver)
 
-    def estimate_something(self, text, sleep_before_result=4):
+    def estimate_something(self, text, sleep_before_result=4) -> EstimationResult:
         result = EstimationResult()
 
         self.page.empty_input_field.clear()
@@ -67,10 +67,10 @@ class GlvrdClient:
 
         return result
 
-    def estimate_clarity(self, text, sleep_before_result=4):
+    def estimate_clarity(self, text, sleep_before_result=4) -> EstimationResult:
         self.page.clarity_screen_on.click()
         return self.estimate_something(text, sleep_before_result=sleep_before_result)
 
-    def estimate_readability(self, text, sleep_before_result=4):
+    def estimate_readability(self, text, sleep_before_result=4) -> EstimationResult:
         self.page.readability_screen_on.click()
         return self.estimate_something(text, sleep_before_result=sleep_before_result)
