@@ -35,7 +35,7 @@ class GlvrdClient:
 
     def get_driver(self) -> webdriver.Chrome:
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        #options.add_argument('--headless')
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         return driver
 
@@ -55,16 +55,13 @@ class GlvrdClient:
         action = webdriver.ActionChains(self.driver)
 
         for text_block in self.page.full_input_field:
-            time.sleep(0.01)
             for highlighted_text_element in text_block.find_elements(By.XPATH, ".//em"):
-                time.sleep(0.01)
                 highlighted_text = highlighted_text_element.text
                 action.move_to_element(highlighted_text_element).perform()
                 error_name = self.page.highlighted_error_name.text
                 if result.errors.get(error_name) is None:
                     result.errors[error_name] = []
                 result.errors[error_name].append(highlighted_text)
-            time.sleep(0.01)
 
         return result
 
