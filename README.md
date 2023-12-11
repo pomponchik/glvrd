@@ -4,6 +4,8 @@
 [![Downloads](https://static.pepy.tech/badge/glvrd)](https://pepy.tech/project/glvrd)
 [![Python versions](https://img.shields.io/pypi/pyversions/glvrd.svg)](https://pypi.python.org/pypi/glvrd)
 [![PyPI version](https://badge.fury.io/py/glvrd.svg)](https://badge.fury.io/py/glvrd)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 Это неофициальный и не production-ready клиент для замечательного сервиса проверки текстов - glvrd.ru. Работает в обход API, так что на особую скорость советую не расчитывать.
 
