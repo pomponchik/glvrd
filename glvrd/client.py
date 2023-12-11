@@ -55,6 +55,7 @@ class GlvrdClient:
         action = webdriver.ActionChains(self.driver)
 
         for text_block in self.page.full_input_field:
+            sleep(0.01)
             for highlighted_text_element in text_block.find_elements(By.XPATH, ".//em"):
                 highlighted_text = highlighted_text_element.text
                 action.move_to_element(highlighted_text_element).perform()
