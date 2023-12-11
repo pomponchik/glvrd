@@ -35,7 +35,7 @@ class GlvrdClient:
 
     def get_driver(self) -> webdriver.Chrome:
         options = webdriver.ChromeOptions()
-        #options.add_argument('--headless')
+        options.add_argument('--headless')
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         return driver
 
