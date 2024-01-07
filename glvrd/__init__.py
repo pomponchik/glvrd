@@ -1,1 +1,1 @@
-from glvrd.client import GlvrdClient  # noqa: F401
+from glvrd.client import GlvrdClient as GlvrdClient  # noqa: F401
