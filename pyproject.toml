@@ -34,5 +34,8 @@ classifiers = [
     'Topic :: Software Development :: Libraries',
 ]
 
+[tool.setuptools.package-data]
+"glvrd" = ["py.typed"]
+
 [project.urls]
 'Source' = 'https://github.com/pomponchik/glvrd'
