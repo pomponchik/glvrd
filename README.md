@@ -32,6 +32,7 @@ def print_estimate(estimate, what_is_it):
     print(f'{error_name}:')
     for example in examples:
       print(f'\t{example}')
+  print()
 
 print_estimate(client.estimate_clarity(text), 'Чистота')
 print_estimate(client.estimate_readability(text), 'Читаемость')
@@ -45,6 +46,7 @@ print_estimate(client.estimate_readability(text), 'Читаемость')
 	замечательного
 Усилитель:
 	особую
+
 Читаемость: 8.8/10
 В начале предложения нет глагола:
 	Это неофициальный и не production-ready клиент для замечательного сервиса
