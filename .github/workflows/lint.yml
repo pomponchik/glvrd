@@ -27,6 +27,14 @@ jobs:
       shell: bash
       run: mypy glvrd --strict
 
+    - name: Run mypy for tests
+      shell: bash
+      run: mypy tests
+
     - name: Run ruff
       shell: bash
       run: ruff check glvrd
+
+    - name: Run ruff for tests
+      shell: bash
+      run: ruff check tests
