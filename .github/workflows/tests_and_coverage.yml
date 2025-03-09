@@ -9,8 +9,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11', '3.12']
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13']
 
     steps:
     - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
       run: pip list
 
     - name: Run tests and show coverage on the command line
-      run: coverage run --source=glvrd --omit="*tests*" -m pytest --cache-clear --assert=plain && coverage report -m
+      run: coverage run --source=glvrd --omit="*tests*" -m pytest --cache-clear --assert=plain && coverage report -m --fail-under=100
 
     - name: Upload reports to codecov
       env:
@@ -43,3 +43,6 @@ jobs:
         find . -iregex "codecov.*"
         chmod +x codecov
         ./codecov -t ${CODECOV_TOKEN}
+
+    - name: Run tests and show the branch coverage on the command line
+      run: coverage run --branch --source=glvrd --omit="*tests*" -m pytest --cache-clear --assert=plain && coverage report -m --fail-under=100

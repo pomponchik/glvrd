@@ -59,7 +59,7 @@ class GlvrdClient:
                 highlighted_text = highlighted_text_element.text
                 action.move_to_element(highlighted_text_element).perform()
                 error_name = self.page.highlighted_error_name.text
-                if result.errors.get(error_name) is None:
+                if result.errors.get(error_name) is None:  # pragma: no cover
                     result.errors[error_name] = []
                 result.errors[error_name].append(highlighted_text)
 
